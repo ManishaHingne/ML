@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+    {% block code_block %}
+
+        <h1>Predict Income</h1>
+        <p>This application is going to predict your income based on the following data.</p>
+
+
+        <form action="http://localhost:5000/predict" method="POST">
+
+            <!-- algorithm -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Algorithm</label>
+                        <select name="algorithm" class="form-control">
+                            <option value="nb">Naive Bayes</option>
+                            <option value="dt">Decision Tree</option>
+                            <option value="rf">Random Forest</option>
+                            <option value="xg">XG Boost</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            
+            <!-- user input -->
+            <h3>User Input Values</h3>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Age</label>
+                        <input name="age" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Education Number</label>
+                        <input name="educationNum" type="number" class="form-control">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Marital Status</label>
+                    <select name="mstatus" class="form-control">
+                        <option value="4">Never Married</option>
+                        <option value="0">Divorced</option>
+                        <option value="2">Married Civ Spouse</option>
+                        <option value="5">Separated</option>
+                        <option value="6">Widowed</option>
+                        <option value="3">Married Spouse Absent</option>
+                        <option value="1">Married AF Spouse</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Relationship</label>
+                    <select name="relationship" class="form-control">
+                        <option value="5">Wife</option>
+                        <option value="3">Own Child</option>
+                        <option value="0">Husband</option>
+                        <option value="1">Not In Family</option>
+                        <option value="2">Other Relative</option>
+                        <option value="4">Unmarried</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Gender</label>
+                    <select name="gender" class="form-control">
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Hours Per Week</label>
+                        <input name="hours" type="number" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Capital Gain</label>
+                        <input name="gain" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Capital Loss</label>
+                        <input name="loss" type="number" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <input class="btn btn-success" type="submit" value="Predict">
+                    <input class="btn btn-danger" type="reset" value="Clear">
+                </div>
+            </div>
+        </form>
+
+    {% endblock code_block %}
